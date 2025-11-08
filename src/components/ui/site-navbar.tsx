@@ -12,7 +12,7 @@ const items = [
 
 export default function SiteNavbar() {
   return (
-    <div className="fixed bottom-3 inset-x-4 z-50">
+    <div className="fixed bottom-[10%] inset-x-4 z-50">
       <div className="w-full max-w-[520px] mx-auto">
         <InteractiveMenu items={items} accentColor={"var(--chart-2)"} />
       </div>

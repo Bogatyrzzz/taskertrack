@@ -7,7 +7,7 @@
   --foreground: #171717;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -35,20 +35,31 @@ body {
   --chart-4: #06b6d4; /* cyan */
   --chart-5: #f59e0b; /* amber */
 
-  --component-inactive-color: var(--muted-foreground);
-  --component-bg: var(--card);
-  --component-shadow: var(--border);
-  --component-active-bg: var(--secondary);
-  --component-line-inactive-color: var(--border);
+  /* Base UI tokens (fallbacks added to avoid invalid CSS when vars missing) */
+  --muted-foreground: #6b7280;
+  --card: rgba(0, 0, 0, 0.06);
+  --secondary: rgba(255, 255, 255, 0.12);
+  --border: rgba(255, 255, 255, 0.12);
+
+  --component-inactive-color: var(--muted-foreground, #9aa1ac);
+  --component-bg: var(--card, rgba(255,255,255,0.06));
+  --component-shadow: var(--border, rgba(255,255,255,0.12));
+  --component-active-bg: var(--secondary, rgba(255,255,255,0.12));
+  --component-line-inactive-color: var(--border, rgba(255,255,255,0.12));
   --component-active-color-default: var(--chart-2);
 }
 
 .dark {
-  --component-inactive-color: var(--muted-foreground);
-  --component-bg: var(--card);
-  --component-shadow: var(--border);
-  --component-active-bg: var(--secondary);
-  --component-line-inactive-color: var(--muted-foreground);
+  --muted-foreground: #9ca3af;
+  --card: rgba(255, 255, 255, 0.06);
+  --secondary: rgba(255, 255, 255, 0.14);
+  --border: rgba(255, 255, 255, 0.10);
+
+  --component-inactive-color: var(--muted-foreground, #9ca3af);
+  --component-bg: var(--card, rgba(255,255,255,0.06));
+  --component-shadow: var(--border, rgba(255,255,255,0.10));
+  --component-active-bg: var(--secondary, rgba(255,255,255,0.14));
+  --component-line-inactive-color: var(--muted-foreground, #9ca3af);
   --component-active-color-default: var(--chart-2);
 }
 
@@ -67,8 +78,8 @@ body {
   gap: 0.25rem;
   padding: 0.5rem 0.75rem;
   border-radius: 9999px;
-  background-color: color-mix(in oklab, var(--component-bg) 80%, transparent);
-  border: 1px solid color-mix(in oklab, var(--component-shadow) 80%, transparent);
+  background-color: color-mix(in oklab, var(--component-bg, rgba(255,255,255,0.06)) 80%, transparent);
+  border: 1px solid color-mix(in oklab, var(--component-shadow, rgba(255,255,255,0.12)) 80%, transparent);
   backdrop-filter: saturate(140%) blur(10px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }

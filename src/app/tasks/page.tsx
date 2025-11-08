@@ -16,7 +16,7 @@ export default function TasksPage({
   const overdueFilter = due === "overdue";
 
   return (
-    <div className="container mx-auto px-4 py-10 text-foreground">
+    <div className="container mx-auto px-4 pt-16 pb-10 text-foreground">
       <header className="mb-6 flex items-center gap-2 text-white/80">
         <ListChecks className="size-5" />
         <h1 className="text-xl">Задачи</h1>

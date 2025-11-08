@@ -83,13 +83,20 @@ const InteractiveMenu: React.FC<InteractiveMenuProps> = ({ items, accentColor, c
             key={item.label}
             className={`menu__item ${isActive ? "active" : ""}`}
             onClick={() => handleItemClick(index)}
-            ref={(el) => (itemRefs.current[index] = el)}
+            ref={(el) => {
+              itemRefs.current[index] = el;
+            }}
             style={{ "--lineWidth": "0px" } as React.CSSProperties}
           >
             <div className="menu__icon">
               <IconComponent className="icon" />
             </div>
-            <strong className={`menu__text ${isActive ? "active" : ""}`} ref={(el) => (textRefs.current[index] = el)}>
+            <strong
+              className={`menu__text ${isActive ? "active" : ""}`}
+              ref={(el) => {
+                textRefs.current[index] = el;
+              }}
+            >
               {item.label}
             </strong>
           </button>

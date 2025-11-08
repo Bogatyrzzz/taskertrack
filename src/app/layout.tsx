@@ -4,6 +4,7 @@ import "./globals.css";
 import SiteNavbar from "@/components/ui/site-navbar";
 import BackgroundShapes from "@/components/ui/background-shapes";
 import BackButton from "@/components/ui/back-button";
+import PagePaddingWrapper from "@/components/ui/page-padding-wrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,7 @@ export default function RootLayout({
       >
         <BackgroundShapes />
         <BackButton />
-        <main className="relative z-10 min-h-[100svh]">{children}</main>
+        <PagePaddingWrapper>{children}</PagePaddingWrapper>
         <SiteNavbar />
       </body>
     </html>

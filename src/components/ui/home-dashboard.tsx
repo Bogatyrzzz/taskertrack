@@ -23,19 +23,19 @@ export default function HomeDashboard() {
 
       <section className="mt-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
         <DashboardCard
-          href={{ pathname: "/tasks", query: { status: "active" } }}
+          href="/tasks?status=active"
           title="Активные задачи"
           value={counts.totalActive}
           icon={<ListChecks className="size-5" />}
         />
         <DashboardCard
-          href={{ pathname: "/tasks", query: { status: "active", due: "today" } }}
+          href="/tasks?status=active&due=today"
           title="Нужно успеть сегодня"
           value={counts.dueToday}
           icon={<CalendarDays className="size-5" />}
         />
         <DashboardCard
-          href={{ pathname: "/tasks", query: { status: "active", due: "overdue" } }}
+          href="/tasks?status=active&due=overdue"
           title="Зона риска"
           value={counts.riskOverdue}
           icon={<AlertTriangle className="size-5" />}
@@ -55,7 +55,7 @@ function DashboardCard({
 }: {
   title: string;
   value: number;
-  href: Parameters<typeof Link>[0];
+  href: string;
   icon: React.ReactNode;
   variant?: "default" | "risk";
 }) {

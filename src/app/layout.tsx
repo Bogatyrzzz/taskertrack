@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SiteNavbar from "@/components/ui/site-navbar";
 import BackgroundShapes from "@/components/ui/background-shapes";
+import BackButton from "@/components/ui/back-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <BackgroundShapes />
+        <BackButton />
         <main className="relative z-10 min-h-[100svh]">{children}</main>
         <SiteNavbar />
       </body>

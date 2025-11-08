@@ -5,6 +5,7 @@ import SiteNavbar from "@/components/ui/site-navbar";
 import BackgroundShapes from "@/components/ui/background-shapes";
 import BackButton from "@/components/ui/back-button";
 import PagePaddingWrapper from "@/components/ui/page-padding-wrapper";
+import FloatingCreateButton from "@/components/ui/floating-create-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
       >
         <BackgroundShapes />
         <BackButton />
+        <FloatingCreateButton />
         <PagePaddingWrapper>{children}</PagePaddingWrapper>
         <SiteNavbar />
       </body>

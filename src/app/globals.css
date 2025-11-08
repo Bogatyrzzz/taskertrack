@@ -111,14 +111,25 @@ body {
 }
 
 .menu__text {
-  display: none;
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   color: inherit;
   position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(4px);
+  max-width: 0;
+  margin-left: 0;
+  transition: opacity 200ms ease, transform 200ms ease, max-width 200ms ease, margin-left 200ms ease;
 }
-.menu__text.active { display: inline-block; }
+.menu__text.active {
+  opacity: 1;
+  transform: translateY(0);
+  max-width: 8rem;
+  margin-left: 0.25rem;
+}
 
 .menu__text.active::after {
   content: "";
